@@ -1,5 +1,8 @@
 package org.launchcode.techjobs_oo;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 public class Job {
@@ -40,6 +43,31 @@ public class Job {
         if (o == null || getClass() != o.getClass()) return false;
         Job job = (Job) o;
         return id == job.id && Objects.equals(name, job.name) && Objects.equals(employer, job.employer) && Objects.equals(location, job.location) && Objects.equals(positionType, job.positionType) && Objects.equals(coreCompetency, job.coreCompetency);
+    }
+
+    @Override
+    public String toString() {
+        String newLine= "\n";
+
+        List<Object> filler = new ArrayList<>(List.of("id: ", "Name: ", "Employer: ", "Location: ", "Position type: ", "Core competentcy: "));
+        List<Object> data = new ArrayList<>(List.of(id, name, employer, location, positionType, coreCompetency));
+        List<Object> output = new ArrayList<>(List.of());
+//TODO: REMAKE iterator for this STUPID method
+        for (int i =0; i < data.size(); i++){
+
+            Object aFill = filler.get(i);
+            Object aData = data.get(i);
+            System.out.println(aFill);
+            System.out.println(aData);
+            System.out.println("\n");
+            aData = aData.toString();
+            output.add(aFill);
+            output.add(aData);
+            output.add(newLine);
+        };
+//        String out = output.toString();
+//        out.replaceAll(",", "$");
+        return output.toString();
     }
 
     @Override

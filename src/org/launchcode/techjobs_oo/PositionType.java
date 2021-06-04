@@ -21,10 +21,7 @@ public class PositionType {
 
     @Override
     public String toString() {
-        return "PositionType{" +
-                "id=" + id +
-                ", value='" + value + '\'' +
-                '}';
+        return value;
     }
 
     @Override
