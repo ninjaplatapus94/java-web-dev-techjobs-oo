@@ -39,14 +39,14 @@ public class JobTest {
     public void testSettingJobID() {
 //    Job testJob1 = new Job();
 //    Job testJob2 = new Job();
-        assertEquals(11, twinJob1.getId());
-        assertEquals(12, twinJob2.getId());
+        assertEquals(12, twinJob1.getId());
+        assertEquals(13, twinJob2.getId());
 
     }
 @Test
     public void testJobConstructorSetsAllFields() {
 
-    assertEquals(7, testJobFull.getId());
+    assertEquals(8, testJobFull.getId());
     assertEquals("Product tester", testJobFull.getName());
     assertTrue(testJobFull.getEmployer() instanceof Employer);
     assertEquals("ACME", testJobFull.getEmployer().getValue());
@@ -65,9 +65,14 @@ public class JobTest {
 
     @Test
     public void testToString() {
-
+Job emptyJob = new Job();
         assertTrue(testJobFull.toString(), testJobFull.toString().contains("\n"));
         assertTrue("Product tester", testJobFull.toString().contains(testJobFull.getName()));
-        assertTrue("ACME", testJobFull.toString().contains(testJobFull.getEmployer()));
+        assertTrue("ACME", testJobFull.toString().contains(testJobFull.getEmployer().getValue()));
+        assertTrue("Desert", testJobFull.toString().contains(testJobFull.getLocation().getValue()));
+        assertTrue("QualityControl", testJobFull.toString().contains(testJobFull.getPositionType().getValue()));
+        assertTrue("Persistence", testJobFull.toString().contains(testJobFull.getCoreCompetency().getValue()));
+        assertTrue("Data not available", emptyJob.getCoreCompetency() == null);
+
     }
 }

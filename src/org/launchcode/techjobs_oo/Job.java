@@ -53,20 +53,24 @@ public class Job {
         List<Object> data = new ArrayList<>(List.of(id, name, employer, location, positionType, coreCompetency));
         List<Object> output = new ArrayList<>(List.of());
 //TODO: REMAKE iterator for this STUPID method
-        for (int i =0; i < data.size(); i++){
 
-            Object aFill = filler.get(i);
+        for (int i =0; i < data.size(); i++){
+            Object aInfo = filler.get(i);
             Object aData = data.get(i);
-            System.out.println(aFill);
-            System.out.println(aData);
-            System.out.println("\n");
-            aData = aData.toString();
-            output.add(aFill);
-            output.add(aData);
+            String nullField = "Data not available";
+            if (aData == null) {
+                aData = nullField;
+            }
+//            else{
+                output.add(aInfo);
+                output.add(aData);
+//            }
+            System.out.print(aInfo);
+            System.out.print(aData);
+            System.out.println();
             output.add(newLine);
-        };
-//        String out = output.toString();
-//        out.replaceAll(",", "$");
+        };output.add(newLine);
+        System.out.print("\n");
         return output.toString();
     }
 
