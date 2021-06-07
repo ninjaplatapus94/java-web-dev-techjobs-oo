@@ -72,7 +72,7 @@ Job emptyJob = new Job();
         assertTrue("Desert", testJobFull.toString().contains(testJobFull.getLocation().getValue()));
         assertTrue("QualityControl", testJobFull.toString().contains(testJobFull.getPositionType().getValue()));
         assertTrue("Persistence", testJobFull.toString().contains(testJobFull.getCoreCompetency().getValue()));
-        assertTrue("Data not available", emptyJob.getCoreCompetency() == null);
+        assertTrue(emptyJob.toString(), emptyJob.toString().contains(null));
 
     }
 }
