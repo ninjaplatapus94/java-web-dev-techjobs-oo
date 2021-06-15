@@ -9,15 +9,12 @@ import static org.junit.Assert.*;
 
 public class JobTest {
     Job testJobFull;
-//    Job testJob1;
-//    Job testJob2;
     Job twinJob1;
     Job twinJob2;
+    Job emptyJob;
 
     @Before
     public void createTestJob() {
-//        testJob1 = new Job();
-//        testJob2 = new Job();
         testJobFull = new Job("Product tester",
                 new Employer("ACME"),
                 new Location("Desert"),
@@ -33,20 +30,20 @@ public class JobTest {
                 new Location("The moon"),
                 new PositionType("Minion"),
                 new CoreCompetency("Willingness"));
-    }
+        emptyJob = new Job();
+        }
+
 
    @Test
     public void testSettingJobID() {
-//    Job testJob1 = new Job();
-//    Job testJob2 = new Job();
-        assertEquals(12, twinJob1.getId());
-        assertEquals(13, twinJob2.getId());
+        assertEquals(15, twinJob1.getId());
+        assertEquals(16, twinJob2.getId());
 
     }
 @Test
     public void testJobConstructorSetsAllFields() {
 
-    assertEquals(8, testJobFull.getId());
+    assertEquals(10, testJobFull.getId());
     assertEquals("Product tester", testJobFull.getName());
     assertTrue(testJobFull.getEmployer() instanceof Employer);
     assertEquals("ACME", testJobFull.getEmployer().getValue());
@@ -63,16 +60,20 @@ public class JobTest {
     assertNotEquals(twinJob1, twinJob2);
     }
 
+
     @Test
     public void testToString() {
 Job emptyJob = new Job();
-        assertTrue(testJobFull.toString(), testJobFull.toString().contains("\n"));
-        assertTrue("Product tester", testJobFull.toString().contains(testJobFull.getName()));
-        assertTrue("ACME", testJobFull.toString().contains(testJobFull.getEmployer().getValue()));
-        assertTrue("Desert", testJobFull.toString().contains(testJobFull.getLocation().getValue()));
-        assertTrue("QualityControl", testJobFull.toString().contains(testJobFull.getPositionType().getValue()));
-        assertTrue("Persistence", testJobFull.toString().contains(testJobFull.getCoreCompetency().getValue()));
-        assertTrue(emptyJob.toString(), emptyJob.toString().contains(null));
 
+        assertTrue(testJobFull.toString(), testJobFull.toString().contains("\n"));
+        assertTrue(testJobFull.toString().contains(testJobFull.getName()));
+        assertTrue(testJobFull.toString().contains(testJobFull.getEmployer().getValue()));
+        assertTrue(testJobFull.toString().contains(testJobFull.getLocation().getValue()));
+        assertTrue(testJobFull.toString().contains(testJobFull.getPositionType().getValue()));
+        assertTrue(testJobFull.toString().contains(testJobFull.getCoreCompetency().getValue()));
+        assertNull(emptyJob.getEmployer());
+        assertNull(emptyJob.getPositionType());
+        assertEquals(9, emptyJob.getId());
+        assertTrue(emptyJob.toString().contains("Data not available"));
     }
 }

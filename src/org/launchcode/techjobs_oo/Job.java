@@ -47,31 +47,40 @@ public class Job {
 
     @Override
     public String toString() {
+
         String newLine= "\n";
-
-        List<Object> filler = new ArrayList<>(List.of("id: ", "Name: ", "Employer: ", "Location: ", "Position type: ", "Core competentcy: "));
-        List<Object> data = new ArrayList<>(List.of(id, name, employer, location, positionType, coreCompetency));
-        List<Object> output = new ArrayList<>(List.of());
-//TODO: REMAKE iterator for this STUPID method
-
-        for (int i =0; i < data.size(); i++){
-            Object aInfo = filler.get(i);
+        String output;
+        List<Object> labels = new ArrayList<>(List.of(" Id:", "Name:", "Employer:", "Location:", "Position type:", "Core competency:"));
+        List<Object> data = new ArrayList<>(List.of(id));
+              for (int i = 0; i < 5; i++) {
+                  data.add(name);
+                  data.add(employer);
+                  data.add(location);
+                  data.add(positionType);
+                  data.add(coreCompetency);
+              }
+        List<Object> collection= new ArrayList<>(List.of());
+//TODO: if statements before line 54 to null check
+        for (int i =0; i < labels.size(); i++){
+            Object aInfo = labels.get(i);
             Object aData = data.get(i);
             String nullField = "Data not available";
-            if (aData == null) {
-                aData = nullField;
+//            String emptyJob = ("OOPS! This job does not seem to exist.");
+            if (data.get(i) != null) {
+//                Object aInfo = labels.get(i);
+//                Object aData = data.get(i);
+                collection.add(aInfo);
+                collection.add(aData);
             }
-//            else{
-                output.add(aInfo);
-                output.add(aData);
-//            }
-            System.out.print(aInfo);
-            System.out.print(aData);
-            System.out.println();
-            output.add(newLine);
-        };output.add(newLine);
-        System.out.print("\n");
-        return output.toString();
+                else {
+                collection.add(aInfo);
+                collection.add(nullField);
+            }
+            collection.add(newLine);
+        }
+        collection.add(newLine);
+        output = collection.toString().replace("[","").replace("]","").replace(",","");
+        return output;
     }
 
     @Override
