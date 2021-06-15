@@ -75,5 +75,6 @@ Job emptyJob = new Job();
         assertNull(emptyJob.getPositionType());
         assertEquals(9, emptyJob.getId());
         assertTrue(emptyJob.toString().contains("Data not available"));
+
     }
 }

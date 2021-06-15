@@ -60,7 +60,6 @@ public class Job {
                   data.add(coreCompetency);
               }
         List<Object> collection= new ArrayList<>(List.of());
-//TODO: if statements before line 54 to null check
         for (int i =0; i < labels.size(); i++){
             Object aInfo = labels.get(i);
             Object aData = data.get(i);
