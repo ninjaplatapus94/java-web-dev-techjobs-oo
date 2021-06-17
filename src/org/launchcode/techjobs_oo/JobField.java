@@ -2,9 +2,7 @@ package org.launchcode.techjobs_oo;
 
 import java.util.Objects;
 
-public class JobField {
-//TODO: set up abstract field to extend to field classes
-// figure out the hashcodes
+public abstract class JobField {
 
         private int id;
         private static int nextId = 1;
