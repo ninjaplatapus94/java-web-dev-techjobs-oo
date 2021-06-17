@@ -17,15 +17,13 @@ public class Employer {
         this.value = value;
     }
 
-    // Custom toString, equals, and hashCode methods:
-
     @Override
     public String toString() {
         return value;
     }
 
     @Override
-    public boolean equals(Object o) {  // Two objects are equal if they have the same id.
+    public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Employer)) return false;
         Employer employer = (Employer) o;
@@ -34,10 +32,9 @@ public class Employer {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId());
+        return Objects.hash(id);
     }
 
-    // Getters and Setters:
 
     public int getId() {
         return id;
