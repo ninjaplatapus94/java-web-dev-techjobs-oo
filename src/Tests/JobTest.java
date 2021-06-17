@@ -30,20 +30,24 @@ public class JobTest {
                 new Location("The moon"),
                 new PositionType("Minion"),
                 new CoreCompetency("Willingness"));
-        emptyJob = new Job();
+        emptyJob = new Job("Super soldier",
+                new Employer(""),
+                new Location(""),
+                new PositionType("Minion"),
+                new CoreCompetency("Willingness"));
         }
 
 
    @Test
     public void testSettingJobID() {
-        assertEquals(15, twinJob1.getId());
-        assertEquals(16, twinJob2.getId());
+        assertEquals(14, twinJob1.getId());
+        assertEquals(15, twinJob2.getId());
 
     }
 @Test
     public void testJobConstructorSetsAllFields() {
 
-    assertEquals(10, testJobFull.getId());
+    assertEquals(9, testJobFull.getId());
     assertEquals("Product tester", testJobFull.getName());
     assertTrue(testJobFull.getEmployer() instanceof Employer);
     assertEquals("ACME", testJobFull.getEmployer().getValue());
@@ -63,7 +67,6 @@ public class JobTest {
 
     @Test
     public void testToString() {
-Job emptyJob = new Job();
 
         assertTrue(testJobFull.toString(), testJobFull.toString().contains("\n"));
         assertTrue(testJobFull.toString().contains(testJobFull.getName()));
@@ -71,9 +74,7 @@ Job emptyJob = new Job();
         assertTrue(testJobFull.toString().contains(testJobFull.getLocation().getValue()));
         assertTrue(testJobFull.toString().contains(testJobFull.getPositionType().getValue()));
         assertTrue(testJobFull.toString().contains(testJobFull.getCoreCompetency().getValue()));
-        assertNull(emptyJob.getEmployer());
-        assertNull(emptyJob.getPositionType());
-        assertEquals(9, emptyJob.getId());
+        assertEquals(8, emptyJob.getId());
         assertTrue(emptyJob.toString().contains("Data not available"));
 
     }
