@@ -100,23 +100,4 @@ public class Job {
         return coreCompetency;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setEmployer(Employer employer) {
-        this.employer = employer;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-
-    public void setPositionType(PositionType positionType) {
-        this.positionType = positionType;
-    }
-
-    public void setCoreCompetency(CoreCompetency coreCompetency) {
-        this.coreCompetency = coreCompetency;
-    }
 }
